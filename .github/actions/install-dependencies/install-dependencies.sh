@@ -46,8 +46,8 @@ setup_macos() {
   # For Qt 6, we use aqtinstall (jurplel/install-qt-action) instead of Homebrew
   # because Homebrew's Qt 6 arm64 version is problematic
   if [ "${INPUT_QT}" -eq 5 ]; then
-    brew install qt@${INPUT_QT}
-    brew link qt@${INPUT_QT} --force
+    brew install qt@${INPUT_QT} || true
+    brew link qt@${INPUT_QT} --force || true
   fi
   echo "/usr/local/opt/libarchive/bin" >> "${GITHUB_PATH}"
   echo "::endgroup::"
